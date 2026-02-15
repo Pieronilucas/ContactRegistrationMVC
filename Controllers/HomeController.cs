@@ -8,7 +8,12 @@ public class HomeController : Controller
 {
     public IActionResult Index()
     {
-        return View();
+        HomeModel homeModel = new HomeModel();
+
+        homeModel.Name = "Lucas Pieroni";
+        homeModel.Email = "Lucaspieroni819@gmail.com";
+        
+        return View(homeModel);
     }
 
     public IActionResult Privacy()
