@@ -14,7 +14,7 @@ public class ContatoController : Controller
     // GET
     public IActionResult Index()
     {
-        var contatos  =_repository.Listar();
+        var contatos  =_repository.ListAll();
         return View(contatos);
     }
     
@@ -24,26 +24,33 @@ public class ContatoController : Controller
     }
     public IActionResult Edit(int id)
     {
-        var contato = _repository.ListarPorId(id);
+        var contato = _repository.GetById(id);
         return View(contato);
     }
-    public IActionResult DeleteConfirmation()
+    public IActionResult DeleteConfirmation(int id)
     {
-        return View();
+        var contato = _repository.GetById(id);
+        return View(contato);
+    }
+
+    public IActionResult Delete(int id)
+    {
+        _repository.DeleteContact(id);
+        return RedirectToAction("Index");
     }
 
     // POST
     [HttpPost]
     public IActionResult Create(ContatoModel contato)
     {
-        _repository.Adicionar(contato);
+        _repository.AddContact(contato);
         return RedirectToAction("Index");
     }
     
     [HttpPost]
     public IActionResult Edit(ContatoModel contato)
     {
-        _repository.Atualizar(contato);
+        _repository.Update(contato);
         return RedirectToAction("Index");
     }
     

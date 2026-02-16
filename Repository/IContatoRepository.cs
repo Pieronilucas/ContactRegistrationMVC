@@ -4,9 +4,9 @@ namespace ContactRegistration.Repository;
 
 public interface IContatoRepository
 {
-    List<ContatoModel> Listar();
-    ContatoModel Adicionar(ContatoModel contato);
-    
-    ContatoModel? ListarPorId(int id);
-    ContatoModel Atualizar(ContatoModel contato);
+    List<ContatoModel> ListAll();
+    ContatoModel AddContact(ContatoModel contato);
+    ContatoModel? GetById(int id);
+    ContatoModel Update(ContatoModel contato);
+    bool? DeleteContact(int id);
 }

@@ -1,5 +1,6 @@
 ﻿using ContactRegistration.Data;
 using ContactRegistration.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ContactRegistration.Repository;
 
@@ -12,7 +13,7 @@ public class ContatoRepository : IContatoRepository
         _context = context;
     }
 
-    public ContatoModel Adicionar(ContatoModel contato)
+    public ContatoModel AddContact(ContatoModel contato)
     {
         _context.Contatos.Add(contato);
         _context.SaveChanges();
@@ -20,19 +21,19 @@ public class ContatoRepository : IContatoRepository
         return contato;
     }
 
-    public List<ContatoModel> Listar()
+    public List<ContatoModel> ListAll()
     {
         return _context.Contatos.ToList();
     }
 
-    public ContatoModel? ListarPorId(int id)
+    public ContatoModel? GetById(int id)
     {
         return _context.Contatos.FirstOrDefault(c => c.Id == id);
     }
 
-    public ContatoModel Atualizar(ContatoModel contato)
+    public ContatoModel Update(ContatoModel contato)
     {
-        ContatoModel contatoUpdate = ListarPorId(contato.Id);
+        ContatoModel contatoUpdate = GetById(contato.Id);
 
         if (contatoUpdate == null)
         {
@@ -45,5 +46,20 @@ public class ContatoRepository : IContatoRepository
         _context.Contatos.Update(contatoUpdate);
         _context.SaveChanges();
         return contatoUpdate;
+    }
+
+    public bool? DeleteContact(int id)
+    {   
+        var contatoDelete = GetById(id);
+
+        if (contatoDelete == null)
+        {
+            throw new SystemException("Usuário inválido.");
+        }
+        
+        _context.Contatos.Remove(contatoDelete);
+        _context.SaveChanges();
+        
+        return true;
     }
 }
