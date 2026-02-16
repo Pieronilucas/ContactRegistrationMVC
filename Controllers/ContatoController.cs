@@ -1,13 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ContactRegistration.Models;
+using ContactRegistration.Repository;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ContactRegistration.Controllers;
 
 public class ContatoController : Controller
 {
+    private readonly IContatoRepository _repository;
+    public ContatoController(IContatoRepository repository)
+    {
+        _repository = repository;
+    }
     // GET
     public IActionResult Index()
     {
-        return View();
+        var contatos  =_repository.Listar();
+        return View(contatos);
     }
     
     public IActionResult Create()
@@ -22,6 +30,13 @@ public class ContatoController : Controller
     {
         return View();
     }
-    
+
+    // POST
+    [HttpPost]
+    public IActionResult Create(ContatoModel contato)
+    {
+        _repository.Adicionar(contato);
+        return RedirectToAction("Index");
+    }
     
 }

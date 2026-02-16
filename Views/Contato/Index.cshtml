@@ -1,4 +1,34 @@
-﻿@{
+﻿@functions {
+    public string FormatarCelular(string celular)
+    {
+        if (string.IsNullOrWhiteSpace(celular))
+            return "";
+
+        var num = new string(celular.Where(char.IsDigit).ToArray());
+        
+        // (XX) XXXX-XXXX
+        if ( num.Length == 10)
+        {
+            
+            return Regex.Replace( num, @"(\d{2})(\d{4})(\d{4})", "($1) $2-$3");
+        }
+        
+        // (XX) XXXXX-XXXX
+        else if ( num.Length == 11)
+        {
+            
+            return Regex.Replace( num, @"(\d{2})(\d{5})(\d{4})", "($1) $2-$3");
+        }
+        // Caso não encontre formato compatível, vai deixar como tá
+        else
+        {
+            return celular; 
+        }
+    }
+}
+@using System.Text.RegularExpressions
+@model List<ContatoModel>
+@{
     ViewData["Title"] = "Lista de contatos";
 }
 <div class="text-center">
@@ -22,42 +52,32 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>mark@gmail.com</td>
-            <td>4002-8922</td>
-            <td>
-                <div class="btn-group" role="group">
-                    <a role="button" class="btn btn-primary" asp-controller="Contato" asp-action="Edit">Editar</a>
-                    <a role="button" class="btn btn-danger" asp-controller="Contato" asp-action="DeleteConfirmation">Apagar</a>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton@outlook.com</td>
-            <td>4002-8922</td>
-            <td>
-                <div class="btn-group" role="group">
-                    <a role="button" class="btn btn-primary" asp-controller="Contato" asp-action="Edit">Editar</a>
-                    <a role="button" class="btn btn-danger" asp-controller="Contato" asp-action="DeleteConfirmation">Apagar</a>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>John Doe</td>
-            <td>Doe@gmail.com</td>
-            <td>4002-8922</td>
-            <td>
-                <div class="btn-group" role="group">
-                    <a role="button" class="btn btn-primary" asp-controller="Contato" asp-action="Edit">Editar</a>
-                    <a role="button" class="btn btn-danger" asp-controller="Contato" asp-action="DeleteConfirmation">Apagar</a>
-                </div>
-            </td>
-        </tr>
+        @if (Model != null && Model.Any())
+        {
+            foreach (ContatoModel contato in Model)
+            {
+                <tr>
+                    <th scope="row">@contato.Id</th>
+                    <td>@contato.Nome</td>
+                    <td>@contato.Email</td>
+                    <td>@FormatarCelular(contato.Celular)</td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a role="button" class="btn btn-primary" asp-route-id="@contato.Id" asp-controller="Contato" asp-action="Edit">Editar</a>
+                            <a role="button" class="btn btn-danger" asp-route-id="@contato.Id" asp-controller="Contato" asp-action="DeleteConfirmation">Apagar</a>
+                        </div>
+                    </td>
+                </tr>
+               
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="5" class="text-center">Nenhum contato cadastrado</td>
+            </tr>
+        } 
         </tbody>
     </table>
 </div>
+
