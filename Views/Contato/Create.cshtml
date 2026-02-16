@@ -27,3 +27,16 @@
     <button type="submit" class="btn btn-primary">Cadastrar</button>
     <a class="btn btn-secondary" asp-controller="Contato" asp-action="Index" role="button">Voltar</a>
 </form>
+
+<script> const celularInput = document.getElementById("Celular"); 
+        celularInput.addEventListener("input", function () 
+        { let valor = celularInput.value.replace(/\D/g, "").slice(0, 11); 
+            if (valor.length <= 10)
+        { 
+            valor = valor.replace(/(\d{2})(\d{4})(\d{0,4})/, "($1) $2-$3"); 
+        } else 
+        { 
+            valor = valor.replace(/(\d{2})(\d{5})(\d{0,4})/, "($1) $2-$3"); 
+        } 
+            celularInput.value = valor; }); 
+</script>

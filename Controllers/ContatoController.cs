@@ -22,9 +22,10 @@ public class ContatoController : Controller
     {
         return View();
     }
-    public IActionResult Edit()
+    public IActionResult Edit(int id)
     {
-        return View();
+        var contato = _repository.ListarPorId(id);
+        return View(contato);
     }
     public IActionResult DeleteConfirmation()
     {
@@ -36,6 +37,13 @@ public class ContatoController : Controller
     public IActionResult Create(ContatoModel contato)
     {
         _repository.Adicionar(contato);
+        return RedirectToAction("Index");
+    }
+    
+    [HttpPost]
+    public IActionResult Edit(ContatoModel contato)
+    {
+        _repository.Atualizar(contato);
         return RedirectToAction("Index");
     }
     

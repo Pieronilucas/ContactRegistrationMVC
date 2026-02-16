@@ -24,4 +24,26 @@ public class ContatoRepository : IContatoRepository
     {
         return _context.Contatos.ToList();
     }
+
+    public ContatoModel? ListarPorId(int id)
+    {
+        return _context.Contatos.FirstOrDefault(c => c.Id == id);
+    }
+
+    public ContatoModel Atualizar(ContatoModel contato)
+    {
+        ContatoModel contatoUpdate = ListarPorId(contato.Id);
+
+        if (contatoUpdate == null)
+        {
+            throw new SystemException("Houve um erro na atualização. Contato não encontrado");
+        }
+        contatoUpdate.Nome = contato.Nome;
+        contatoUpdate.Email = contato.Email;
+        contatoUpdate.Celular = contato.Celular;
+        
+        _context.Contatos.Update(contatoUpdate);
+        _context.SaveChanges();
+        return contatoUpdate;
+    }
 }
