@@ -4,7 +4,7 @@
 }
 
 <div class="text-center">
-    
+
     <br>
     <h1 class="display-4">Edição de contatos</h1>
 
@@ -19,15 +19,43 @@
     </div>
     <div class="mb-3">
         <label for="Email" class="form-label fw-bold">E-mail</label>
-        <input type="email" asp-for="Email"  class="form-control" placeholder="Digite o e-mail do contato">
+        <input type="email" asp-for="Email" class="form-control" placeholder="Digite o e-mail do contato">
         @Html.ValidationMessageFor(x => x.Email)
     </div>
     <div class="mb-3">
         <label for="Celular" class="form-label fw-bold">Celular</label>
-        <input type="text" asp-for="Celular"  class="form-control" placeholder="Digite o celular do contato">
+        <input type="text" id="CelularVisivel" class="form-control" placeholder="Digite o celular do contato">
+        <input type="hidden" asp-for="Celular" id="Celular">
         @Html.ValidationMessageFor(x => x.Celular)
     </div>
 
     <button type="submit" class="btn btn-primary">Alterar</button>
     <a class="btn btn-secondary" asp-controller="Contato" asp-action="Index" role="button">Voltar</a>
 </form>
+
+<script>
+    const celularVisivel = document.getElementById("CelularVisivel");
+    const celularHidden = document.getElementById("Celular");
+
+    function aplicarMascara(numeros) {
+        numeros = numeros.replace(/\D/g, "").slice(0, 11);
+
+        if (numeros.length <= 10) {
+            return numeros.replace(/(\d{2})(\d{4})(\d{0,4})/, "($1) $2-$3");
+        } else {
+            return numeros.replace(/(\d{2})(\d{5})(\d{0,4})/, "($1) $2-$3");
+        }
+    }
+
+    celularVisivel.addEventListener("input", function () {
+        let numeros = celularVisivel.value.replace(/\D/g, "").slice(0, 11);
+        celularHidden.value = numeros;
+        celularVisivel.value = aplicarMascara(numeros);
+    });
+
+    window.addEventListener("DOMContentLoaded", function () {
+        if (celularHidden.value) {
+            celularVisivel.value = aplicarMascara(celularHidden.value);
+        }
+    });
+</script>

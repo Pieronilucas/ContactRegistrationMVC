@@ -1,4 +1,5 @@
-﻿using ContactRegistration.Models;
+﻿using System.Text.RegularExpressions;
+using ContactRegistration.Models;
 using ContactRegistration.Repository;
 using Microsoft.AspNetCore.Mvc;
 
@@ -60,6 +61,7 @@ public class ContatoController : Controller
         {
             if (ModelState.IsValid)
             {
+                contato.Celular = Regex.Replace(contato.Celular ?? "", @"\D", "");
                 _repository.AddContact(contato);
                 TempData["SucessMessage"] = "Contato adicionado com sucesso!";
                 return RedirectToAction("Index");
@@ -81,6 +83,7 @@ public class ContatoController : Controller
         {
             if (ModelState.IsValid)
             {
+                contato.Celular = Regex.Replace(contato.Celular ?? "", @"\D", "");
                 _repository.Update(contato);
                 TempData["SucessMessage"] = "Contato atualizado com sucesso!";
                 return RedirectToAction("Index");

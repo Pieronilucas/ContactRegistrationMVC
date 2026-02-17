@@ -23,7 +23,8 @@
     </div>
     <div class="mb-3">
         <label for="Celular" class="form-label fw-bold">Celular</label>
-        <input type="text" asp-for="Celular" class="form-control" placeholder="Digite o celular do contato">
+        <input type="text" id="CelularVisivel" class="form-control" placeholder="Digite o celular do contato">
+        <input type="hidden" asp-for="Celular" id="Celular">
         @Html.ValidationMessageFor(x => x.Celular)
     </div>
 
@@ -32,15 +33,18 @@
 </form>
 
 <script>
-    const celularInput = document.getElementById("Celular"); 
-        celularInput.addEventListener("input", function () 
-        { let valor = celularInput.value.replace(/\D/g, "").slice(0, 11); 
-            if (valor.length <= 10)
-        { 
-            valor = valor.replace(/(\d{2})(\d{4})(\d{0,4})/, "($1) $2-$3"); 
-        } else 
-        { 
-            valor = valor.replace(/(\d{2})(\d{5})(\d{0,4})/, "($1) $2-$3"); 
-        } 
-            celularInput.value = valor; }); 
+    const celularVisivel = document.getElementById("CelularVisivel");
+    const celularHidden = document.getElementById("Celular");
+
+    celularVisivel.addEventListener("input", function () {
+        let numeros = celularVisivel.value.replace(/\D/g, "").slice(0, 11);
+
+        celularHidden.value = numeros; // valor limpo para o banco
+
+        if (numeros.length <= 10) {
+            celularVisivel.value = numeros.replace(/(\d{2})(\d{4})(\d{0,4})/, "($1) $2-$3");
+        } else {
+            celularVisivel.value = numeros.replace(/(\d{2})(\d{5})(\d{0,4})/, "($1) $2-$3");
+        }
+    });
 </script>
