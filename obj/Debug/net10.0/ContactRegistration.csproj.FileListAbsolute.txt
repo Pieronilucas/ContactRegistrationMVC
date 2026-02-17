@@ -222,4 +222,4 @@ C:\Users\Lucas\RiderProjects\ContactRegistration\bin\Debug\net10.0\runtimes\win-
 C:\Users\Lucas\RiderProjects\ContactRegistration\obj\Debug\net10.0\ContactRegistration.csproj.AssemblyReference.cache
 C:\Users\Lucas\RiderProjects\ContactRegistration\obj\Debug\net10.0\ContactR.05D9F597.Up2Date
 C:\Users\Lucas\RiderProjects\ContactRegistration\obj\Debug\net10.0\compressed\m1v279ujgk-{0}-zfqepti2a6-zfqepti2a6.gz
-C:\Users\Lucas\RiderProjects\ContactRegistration\obj\Debug\net10.0\compressed\443wtxvxrx-{0}-8rqm7xs02j-8rqm7xs02j.gz
+C:\Users\Lucas\RiderProjects\ContactRegistration\obj\Debug\net10.0\compressed\443wtxvxrx-{0}-6ompwdq057-6ompwdq057.gz

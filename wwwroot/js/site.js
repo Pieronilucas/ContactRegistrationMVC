@@ -1,4 +1,10 @@
-﻿let table = new DataTable('#table-contatos',{
+﻿
+getDataTable('#table-usuarios')
+getDataTable('#table-contatos')
+
+
+function getDataTable(id) {
+    let table = new DataTable(id,{
     ordering: true,
         paging: true,
         searching: true,
@@ -24,7 +30,8 @@
                 sortDescending: ": Ordenar colunas de forma descendente"
         }
     }
-});
+})
+}
 
 
 
