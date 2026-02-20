@@ -1,6 +1,5 @@
 ﻿using ContactRegistration.Data;
 using ContactRegistration.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace ContactRegistration.Repository;
 

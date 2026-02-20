@@ -10,6 +10,7 @@ builder.Services.AddDbContext<BancoContext>(options =>
     options.UseSqlServer(connectionString));
 
 builder.Services.AddScoped<IContatoRepository, ContatoRepository>();
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
