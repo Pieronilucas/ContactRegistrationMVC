@@ -35,6 +35,7 @@
             <th scope="col">ID</th>
             <th scope="col">Nome</th>
             <th scope="col">E-mail</th>
+            <th scope="col">Perfil</th>
             <th scope="col">Login</th>
             <th scope="col">Data de cadastro</th>
             <th scope="col"></th>
@@ -49,6 +50,7 @@
                     <th scope="row">@usuario.Id</th>
                     <td>@usuario.Nome</td>
                     <td>@usuario.Email</td>
+                    <td>@(usuario.Perfil == ContactRegistration.Enums.PerfilEnum.ADMIN ? "Admin" : "Padrão")</td>
                     <td>@usuario.Login</td>
                     <td>@usuario.CriadoEm</td>
                     <td>
