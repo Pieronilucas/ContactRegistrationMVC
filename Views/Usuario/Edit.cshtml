@@ -1,0 +1,49 @@
+﻿@using ContactRegistration.Enums
+@model UsuarioModel
+@{
+    ViewData["Title"] = "Editar usuário";
+}
+
+<div class="text-center">
+
+    <br>
+    <h1 class="display-4">Edição de usuários</h1>
+
+</div>
+
+<input type="hidden" asp-for="Id"/>
+<form asp-controller="Usuario" asp-action="Edit" method="post">
+    <div class="mb-3">
+        <label for="Nome" class="form-label fw-bold">Nome</label>
+        <input type="text" asp-for="Nome" class="form-control" placeholder="Digite o nome do usuário">
+        @Html.ValidationMessageFor(x => x.Nome)
+    </div>
+    
+    <div class="mb-3">
+        <label for="Email" class="form-label fw-bold">E-mail</label>
+        <input type="email" asp-for="Email" class="form-control" placeholder="Digite o e-mail do usuário">
+        @Html.ValidationMessageFor(x => x.Email)
+    </div>
+    
+    <div class="mb-3">
+        <label for="Login" class="form-control fw-bold">Login</label>
+        <input type="text" asp-for="Login" class="form-control" placeholder="Digite o Login do usuário">
+        @Html.ValidationMessageFor(x => x.Login)
+    </div>
+    
+    <div class="mb-3">
+        <label asp-for="Perfil" class="form-label fw-bold"></label>
+
+        <select asp-for="Perfil" 
+                asp-items="Html.GetEnumSelectList<PerfilEnum>()"
+                class="form-control">
+            <option value="" disabled selected>Selecione</option>
+        </select>
+
+        @Html.ValidationMessageFor(x => x.Perfil)
+    </div>
+
+    <button type="submit" class="btn btn-primary">Alterar</button>
+    <a class="btn btn-secondary" asp-controller="Usuario" asp-action="Index" role="button">Voltar</a>
+</form>
+

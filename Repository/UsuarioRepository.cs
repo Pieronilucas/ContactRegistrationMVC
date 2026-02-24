@@ -43,7 +43,10 @@ public class UsuarioRepository : IUsuarioRepository
         usuarioUpdate.Nome = usuario.Nome;
         usuarioUpdate.Email = usuario.Email;
         usuarioUpdate.Login = usuario.Login;
-        usuarioUpdate.Senha = usuario.Senha;
+        if (!string.IsNullOrEmpty(usuario.Senha))
+        {
+            usuarioUpdate.Senha = usuario.Senha;
+        }
         usuarioUpdate.Perfil = usuario.Perfil;
         usuario.AtualizadoEm = DateTime.Now;
         usuarioUpdate.AtualizadoEm = usuario.AtualizadoEm;

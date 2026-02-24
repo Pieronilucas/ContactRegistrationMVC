@@ -24,6 +24,33 @@ public class UsuarioController : Controller
         return View();
     }
     
+    public IActionResult Edit(int id)
+    {
+        var usuario = _repository.FindUserById(id);
+        return View(usuario);
+    }
+    
+    public IActionResult DeleteConfirmation(int id)
+    {
+        var usuario = _repository.FindUserById(id);
+        return View(usuario);
+    }
+    
+    public IActionResult Delete(int id)
+    {
+        try
+        {
+            _repository.DeleteUser(id);
+            TempData["SucessMessage"] = "Usuário excluído com sucesso!";
+            return RedirectToAction("Index");
+        }
+        catch (Exception e)
+        {
+            TempData["ErrorMessage"] = "Não foi possível excluir o usuário. " + e.Message;
+            return RedirectToAction("Index");
+        }
+    }
+    
     // POST
     [HttpPost]
     public IActionResult Create(UsuarioModel usuario)
@@ -41,7 +68,30 @@ public class UsuarioController : Controller
         }
         catch (Exception e)
         {
-            TempData["ErrorMessage"] = "Não foi possível cadastrar o usuário." + e.Message;
+            TempData["ErrorMessage"] = "Não foi possível cadastrar o usuário. " + e.Message;
+            return RedirectToAction("Index");
+        }
+    }
+    
+    [HttpPost]
+    public IActionResult Edit(UsuarioModel usuario)
+    {
+        try
+        {
+            ModelState.Remove("Senha");
+            if (ModelState.IsValid)
+            {
+                
+                _repository.UpdateUser(usuario);
+                TempData["SucessMessage"] = "Usuário atualizado com sucesso!";
+                return RedirectToAction("Index");
+            }
+
+            return View(usuario);
+        }
+        catch (Exception e)
+        {
+            TempData["ErrorMessage"] = "Não foi possível editar o usuário." + e.Message;
             return RedirectToAction("Index");
         }
     }
