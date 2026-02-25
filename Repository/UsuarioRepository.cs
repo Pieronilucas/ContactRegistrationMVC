@@ -13,6 +13,8 @@ public class UsuarioRepository : IUsuarioRepository
         _context = context;
     }
     
+    
+    
     public UsuarioModel CreateUser(UsuarioModel usuario)
     {
         usuario.CriadoEm = DateTime.Now;
@@ -20,6 +22,11 @@ public class UsuarioRepository : IUsuarioRepository
         _context.SaveChanges();
         
         return usuario;
+    }
+
+    public UsuarioModel? ObtainLogin(string login)
+    {
+        return _context.Usuarios.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper());
     }
 
     public List<UsuarioModel> ListAll()

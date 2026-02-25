@@ -19,4 +19,10 @@ public class UsuarioModel
     public PerfilEnum  Perfil { get; set; }
     public DateTime CriadoEm { get; set; }
     public DateTime? AtualizadoEm { get; set; }
+
+
+    public bool SenhaValida(string senha)
+    {
+        return Senha == senha;
+    }
 }

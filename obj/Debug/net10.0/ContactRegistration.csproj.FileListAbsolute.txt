@@ -81,8 +81,6 @@ C:\Users\Lucas\RiderProjects\ContactRegistration\obj\Debug\net10.0\compressed\aw
 C:\Users\Lucas\RiderProjects\ContactRegistration\obj\Debug\net10.0\compressed\212xao4fke-{0}-9vr69e8ynj-9vr69e8ynj.gz
 C:\Users\Lucas\RiderProjects\ContactRegistration\obj\Debug\net10.0\compressed\rron2do7is-{0}-87fc7y1x7t-87fc7y1x7t.gz
 C:\Users\Lucas\RiderProjects\ContactRegistration\obj\Debug\net10.0\compressed\likk663g60-{0}-mlv21k5csn-mlv21k5csn.gz
-C:\Users\Lucas\RiderProjects\ContactRegistration\obj\Debug\net10.0\compressed\9hasph8icd-{0}-ebeygokh77-ebeygokh77.gz
-C:\Users\Lucas\RiderProjects\ContactRegistration\obj\Debug\net10.0\compressed\9qqsxj7hvg-{0}-ebeygokh77-ebeygokh77.gz
 C:\Users\Lucas\RiderProjects\ContactRegistration\obj\Debug\net10.0\staticwebassets.build.json
 C:\Users\Lucas\RiderProjects\ContactRegistration\obj\Debug\net10.0\staticwebassets.build.json.cache
 C:\Users\Lucas\RiderProjects\ContactRegistration\obj\Debug\net10.0\staticwebassets.development.json
@@ -223,3 +221,6 @@ C:\Users\Lucas\RiderProjects\ContactRegistration\obj\Debug\net10.0\ContactRegist
 C:\Users\Lucas\RiderProjects\ContactRegistration\obj\Debug\net10.0\ContactR.05D9F597.Up2Date
 C:\Users\Lucas\RiderProjects\ContactRegistration\obj\Debug\net10.0\compressed\m1v279ujgk-{0}-zfqepti2a6-zfqepti2a6.gz
 C:\Users\Lucas\RiderProjects\ContactRegistration\obj\Debug\net10.0\compressed\443wtxvxrx-{0}-6ompwdq057-6ompwdq057.gz
+C:\Users\Lucas\RiderProjects\ContactRegistration\obj\Debug\net10.0\scopedcss\Views\Shared\_LayoutDeslogado.cshtml.rz.scp.css
+C:\Users\Lucas\RiderProjects\ContactRegistration\obj\Debug\net10.0\compressed\9hasph8icd-{0}-5acbyzwdcb-5acbyzwdcb.gz
+C:\Users\Lucas\RiderProjects\ContactRegistration\obj\Debug\net10.0\compressed\9qqsxj7hvg-{0}-5acbyzwdcb-5acbyzwdcb.gz

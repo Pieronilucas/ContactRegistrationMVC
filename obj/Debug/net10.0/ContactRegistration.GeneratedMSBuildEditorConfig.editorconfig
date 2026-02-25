@@ -54,6 +54,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Lucas/RiderProjects/ContactRegistration/Views/Login/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Lucas/RiderProjects/ContactRegistration/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -89,3 +93,7 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Users/Lucas/RiderProjects/ContactRegistration/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-t4fl3ge24i
+
+[C:/Users/Lucas/RiderProjects/ContactRegistration/Views/Shared/_LayoutDeslogado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXREZXNsb2dhZG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-pce09ia6pe
