@@ -1,4 +1,5 @@
 using ContactRegistration.Data;
+using ContactRegistration.Helper;
 using ContactRegistration.Repository;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,8 +10,17 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<BancoContext>(options =>
     options.UseSqlServer(connectionString));
 
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped<IContatoRepository, ContatoRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<IUserSession, UserSession>();
+
+builder.Services.AddSession(o =>
+{
+    o.Cookie.HttpOnly = true;
+    o.Cookie.IsEssential = true;
+    o.IdleTimeout = TimeSpan.FromMinutes(30);
+});
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -27,6 +37,8 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseRouting();
+
+app.UseSession();
 
 app.UseAuthorization();
 

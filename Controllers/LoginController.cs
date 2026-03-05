@@ -1,4 +1,5 @@
-﻿using ContactRegistration.Models;
+﻿using ContactRegistration.Helper;
+using ContactRegistration.Models;
 using ContactRegistration.Repository;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,14 +8,28 @@ namespace ContactRegistration.Controllers;
 public class LoginController : Controller
 {
     private readonly IUsuarioRepository _usuarioRepository;
+    private readonly IUserSession _userSession;
     
-    public LoginController(IUsuarioRepository usuarioRepository)
+    public LoginController(IUsuarioRepository usuarioRepository, IUserSession userSession)
     {
         _usuarioRepository = usuarioRepository;
+        _userSession = userSession;
     }
     public IActionResult Index()
     {
+        if (_userSession.GetSession() != null)
+        {
+            return RedirectToAction("Index", "Home");
+        }
+        
         return View();
+    }
+
+    public IActionResult LeavingSession()
+    {
+        _userSession.RemoveSession();
+        
+        return RedirectToAction("Index", "Login");
     }
 
     [HttpPost]
@@ -25,14 +40,10 @@ public class LoginController : Controller
             if (ModelState.IsValid) 
             {
                 var login = _usuarioRepository.ObtainLogin(model.Login);
-                if (login != null)
+                if (login != null && login.SenhaValida(model.Senha))
                 {
-                    if (login.SenhaValida(model.Senha))
-                    {
+                        _userSession.CreateSession(login);
                         return RedirectToAction("Index", "Home");
-                    }
-                    
-                    
                 }
                 TempData["ErrorMessage"] = "Usuário e/ou senha inválido(s). Tente novamente!";
             }
