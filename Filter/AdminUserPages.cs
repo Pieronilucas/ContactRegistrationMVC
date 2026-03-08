@@ -20,7 +20,7 @@ public class AdmindUserPages : ActionFilterAttribute
         {
             UsuarioModel user = System.Text.Json.JsonSerializer.Deserialize<UsuarioModel>(userSession);
 
-            if (user != null)
+            if (user == null)
             {
                 context.Result = new RedirectToRouteResult(new RouteValueDictionary(new { controller = "Login", action = "Index" }));
             }

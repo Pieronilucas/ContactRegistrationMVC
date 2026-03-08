@@ -23,6 +23,6 @@ public class UsuarioModel
 
     public bool SenhaValida(string senha)
     {
-        return Senha == senha;
+        return  BCrypt.Net.BCrypt.Verify(senha, Senha);
     }
 }

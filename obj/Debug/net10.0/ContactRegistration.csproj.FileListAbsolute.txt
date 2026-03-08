@@ -224,3 +224,5 @@ C:\Users\Lucas\RiderProjects\ContactRegistration\obj\Debug\net10.0\compressed\44
 C:\Users\Lucas\RiderProjects\ContactRegistration\obj\Debug\net10.0\scopedcss\Views\Shared\_LayoutDeslogado.cshtml.rz.scp.css
 C:\Users\Lucas\RiderProjects\ContactRegistration\obj\Debug\net10.0\compressed\9hasph8icd-{0}-5acbyzwdcb-5acbyzwdcb.gz
 C:\Users\Lucas\RiderProjects\ContactRegistration\obj\Debug\net10.0\compressed\9qqsxj7hvg-{0}-5acbyzwdcb-5acbyzwdcb.gz
+C:\Users\Lucas\RiderProjects\ContactRegistration\bin\Debug\net10.0\DevOne.Security.Cryptography.BCrypt.dll
+C:\Users\Lucas\RiderProjects\ContactRegistration\bin\Debug\net10.0\BCrypt.Net-Next.dll

@@ -1,4 +1,5 @@
 ﻿using ContactRegistration.Data;
+using ContactRegistration.Helper;
 using ContactRegistration.Models;
 
 
@@ -18,6 +19,7 @@ public class UsuarioRepository : IUsuarioRepository
     public UsuarioModel CreateUser(UsuarioModel usuario)
     {
         usuario.CriadoEm = DateTime.Now;
+        usuario.Senha = Crypt.Encrypt(usuario.Senha);
         _context.Usuarios.Add(usuario);
         _context.SaveChanges();
         
