@@ -20,4 +20,8 @@
       </PackageReference>
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Pages\Restrito\Index.cshtml" />
+    </ItemGroup>
+
 </Project>

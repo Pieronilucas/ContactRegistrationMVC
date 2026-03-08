@@ -1,10 +1,12 @@
 ﻿using System.Text.RegularExpressions;
+using ContactRegistration.Filter;
 using ContactRegistration.Models;
 using ContactRegistration.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ContactRegistration.Controllers;
 
+[LoggedUserPages]
 public class ContatoController : Controller
 {
     private readonly IContatoRepository _repository;

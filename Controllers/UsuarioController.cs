@@ -1,9 +1,11 @@
-﻿using ContactRegistration.Models;
+﻿using ContactRegistration.Filter;
+using ContactRegistration.Models;
 using ContactRegistration.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ContactRegistration.Controllers;
 
+[AdmindUserPages]
 public class UsuarioController : Controller
 {
     private readonly IUsuarioRepository _repository;

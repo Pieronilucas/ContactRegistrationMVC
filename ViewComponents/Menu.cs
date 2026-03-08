@@ -1,6 +1,5 @@
 ﻿using ContactRegistration.Helper;
 using ContactRegistration.Models;
-using ContactRegistration.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ContactRegistration.ViewComponents;

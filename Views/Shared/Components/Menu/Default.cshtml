@@ -1,4 +1,5 @@
-﻿@model ContactRegistration.Models.UsuarioModel
+﻿@using ContactRegistration.Enums
+@model ContactRegistration.Models.UsuarioModel
 
 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Olá, @Model.Nome</a>
 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
@@ -14,9 +15,13 @@
         <li class="nav-item">
             <a class="nav-link text-dark" asp-area="" asp-controller="Contato" asp-action="Index">Contatos</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Index">Usuários</a>
-        </li>
+        @if (Model.Perfil == PerfilEnum.ADMIN)
+        {
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Index">Usuários</a>
+            </li>
+        }
+        
     </ul>
     <ul class="navbar-nav">
         <li class="nav-item">
