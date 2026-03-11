@@ -43,7 +43,7 @@ public class UsuarioController : Controller
         try
         {
             _repository.DeleteUser(id);
-            TempData["SucessMessage"] = "Usuário excluído com sucesso!";
+            TempData["SuccessMessage"] = "Usuário excluído com sucesso!";
             return RedirectToAction("Index");
         }
         catch (Exception e)
@@ -62,7 +62,7 @@ public class UsuarioController : Controller
             if (ModelState.IsValid)
             {
                 _repository.CreateUser(usuario);
-                TempData["SucessMessage"] = "Usuário adicionado com sucesso!";
+                TempData["SuccessMessage"] = "Usuário adicionado com sucesso!";
                 return RedirectToAction("Index");
             }
 
@@ -85,7 +85,7 @@ public class UsuarioController : Controller
             {
                 
                 _repository.UpdateUser(usuario);
-                TempData["SucessMessage"] = "Usuário atualizado com sucesso!";
+                TempData["SuccessMessage"] = "Usuário atualizado com sucesso!";
                 return RedirectToAction("Index");
             }
 

@@ -23,6 +23,13 @@ public class UsuarioModel
 
     public bool SenhaValida(string senha)
     {
-        return  BCrypt.Net.BCrypt.Verify(senha, Senha);
+        return BCrypt.Net.BCrypt.Verify(senha, Senha);
+    }
+
+    public string GerarNovaSenha()
+    {
+        string novaSenha = Guid.NewGuid().ToString().Substring(0, 8).Replace("-", "");
+        Senha = BCrypt.Net.BCrypt.HashPassword(novaSenha);
+        return novaSenha;
     }
 }
