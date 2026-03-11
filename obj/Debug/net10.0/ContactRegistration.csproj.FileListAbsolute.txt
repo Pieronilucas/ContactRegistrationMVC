@@ -226,3 +226,6 @@ C:\Users\Lucas\RiderProjects\ContactRegistration\obj\Debug\net10.0\compressed\9h
 C:\Users\Lucas\RiderProjects\ContactRegistration\obj\Debug\net10.0\compressed\9qqsxj7hvg-{0}-5acbyzwdcb-5acbyzwdcb.gz
 C:\Users\Lucas\RiderProjects\ContactRegistration\bin\Debug\net10.0\DevOne.Security.Cryptography.BCrypt.dll
 C:\Users\Lucas\RiderProjects\ContactRegistration\bin\Debug\net10.0\BCrypt.Net-Next.dll
+C:\Users\Lucas\RiderProjects\ContactRegistration\bin\Debug\net10.0\BouncyCastle.Cryptography.dll
+C:\Users\Lucas\RiderProjects\ContactRegistration\bin\Debug\net10.0\MailKit.dll
+C:\Users\Lucas\RiderProjects\ContactRegistration\bin\Debug\net10.0\MimeKit.dll
