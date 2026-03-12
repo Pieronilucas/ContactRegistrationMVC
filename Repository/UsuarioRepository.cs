@@ -84,4 +84,25 @@ public class UsuarioRepository : IUsuarioRepository
         
         return true;
     }
+
+    public UsuarioModel? UpdatePassword(AlterarSenhaModel AlterarSenha)
+    {
+        var userDB = FindUserById(AlterarSenha.Id);
+
+        if (userDB == null) throw new Exception("Houve um erro um na atualização da senha. Usuário não encontrado.");
+
+        if (!userDB.SenhaValida(AlterarSenha.SenhaAtual)) throw new Exception("Senha atual inválida.");
+
+        if (userDB.SenhaValida(AlterarSenha.NovaSenha))
+            throw new Exception("A nova senha deve ser diferente da senha atual.");
+        
+        userDB.AtualizarSenha(AlterarSenha.NovaSenha);
+        userDB.AtualizadoEm = DateTime.Now;
+        
+        _context.Usuarios.Update(userDB);
+        _context.SaveChanges();
+        return userDB;
+    }
+
+    
 }

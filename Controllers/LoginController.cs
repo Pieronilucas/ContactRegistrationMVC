@@ -85,6 +85,7 @@ public class LoginController : Controller
 
                     if (sendEmail)
                     {
+                        login.AtualizadoEm = DateTime.Now;
                         _usuarioRepository.UpdateUser(login);
                         TempData["SuccessMessage"] = "Enviamos para o seu e-mail uma nova senha.";
                     }

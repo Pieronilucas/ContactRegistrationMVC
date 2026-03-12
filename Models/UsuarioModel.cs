@@ -32,4 +32,9 @@ public class UsuarioModel
         Senha = BCrypt.Net.BCrypt.HashPassword(novaSenha);
         return novaSenha;
     }
+
+    public void AtualizarSenha(string senha)
+    {
+        Senha = BCrypt.Net.BCrypt.HashPassword(senha);
+    }
 }
